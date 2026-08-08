@@ -1,0 +1,248 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+main{
+  margin-bottom: 20px;
+  padding: 0 1rem;
+}
+
+
+header{
+  background-color: lightgray;
+  margin-bottom: 20px;
+}
+
+header h1{
+  font-size: clamp(1.4rem, 5vw, 1.9rem);
+  padding:15px;
+  margin: 0;
+}
+
+.page-title {
+  text-align: center;
+}
+
+.page-title h1 {
+  display: inline-block;
+  font-size: clamp(1.4rem, 5vw, 1.9rem);
+  padding:15px;
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  line-height: 1.5;
+}
+
+button:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+.select-li {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+}
+
+.select-button{
+  border: 2px solid var(--subject-color);
+  border-radius: 8px;
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  min-height: 48px;
+}
+
+.select-button:hover {
+  background-color: color-mix(in srgb, var(--subject-color) 30%, transparent);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.quiz-start-button{
+  display: block;
+  margin: 0 auto;
+  border: 2px solid var(--subject-color);
+  border-radius: 8px;
+  width: 85%;
+  max-width: 720px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  min-height: 48px;
+}
+
+.quiz-start-button:hover {
+  background-color: color-mix(in srgb, var(--subject-color) 30%, transparent);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.back-button{
+  border: 2px solid darkgray;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-left: 20px;
+  min-height: 48px;
+}
+
+.back-button:hover {
+  background-color: color-mix(in srgb, darkgray 30%, transparent);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.next-button{
+  float: right;
+  border: 2px solid var(--subject-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-left: 20px;
+  min-height: 48px;
+}
+
+.next-button:hover {
+  background-color: color-mix(in srgb, var(--subject-color) 30%, transparent);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.progress-container {
+  width: 85%;
+  height: 8px;
+  border-radius: 4px;
+  margin: 0 auto 1rem;
+  background-color: #e5e5e5;
+}
+
+.progress-bar {
+  width: var(--progress-width);
+  height: 100%;
+  border-radius: 4px;
+  background-color: lightgreen;
+}
+
+
+.theme-comment {
+  background-color: color-mix(in srgb, var(--subject-color) 30%, transparent);
+  width: calc(100% - 2rem);
+  max-width: 720px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  padding: 0.7rem;
+  white-space: pre-wrap;
+  line-height: 1.8;
+}
+
+.container {
+  width: calc(100% - 2rem);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.question{
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.choice-button{
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  border: 2px solid lightgray;
+  border-radius: 10px;
+  min-height: 48px;
+  text-align: left;
+}
+
+.choice-button:hover {
+  background-color: color-mix(in srgb, lightgray 30%, transparent);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.choice-disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.choice-correct {
+  border-color: green;
+  background-color: rgba(144, 238, 144, 0.6);
+}
+
+.choice-incorrect {
+  border-color: gray;
+  background-color: rgba(211, 211, 211, 0.6);
+}
+
+.explanation {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+.explanation h2 {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .select-button,
+  .quiz-start-button {
+    width: 100%;
+  }
+
+  .back-button,
+  .next-button {
+    display: block;
+    float: none;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .choice-button {
+    padding: 0.9rem;
+  }
+}
